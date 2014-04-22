@@ -31,8 +31,8 @@ n.pft     = length(pft.names) - 1
 
 pft <- c(5,6,8,9,10,11)
 
-#for(s in 1:length(sites)){
-  s <- 2
+for(s in 1:length(sites)){
+
   #Set directories
   dat.dir    <- paste("/projectnb/cheas/paleon/ED_runs/p1a_spin_040414/",sites[s],"/analy2/",sep="")
   match.files <- grep("-Y-",list.files(dat.dir))
@@ -78,6 +78,7 @@ pft <- c(5,6,8,9,10,11)
       
     close.ncdf(now)
   }
+}
   
   years <- as.character((yeara:yearz)-1000)
   year.date <- as.Date(years,"%Y")
