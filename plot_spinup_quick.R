@@ -31,10 +31,10 @@ n.pft     = length(pft.names) - 1
 
 pft <- c(5,6,8,9,10,11)
 
-for(s in 1:length(sites)){
-
+#for(s in 1:length(sites)){
+s <- 2
   #Set directories
-  dat.dir    <- paste("/projectnb/cheas/paleon/ED_runs/p1a_spin_040414/",sites[s],"/analy2/",sep="")
+  dat.dir    <- paste("/projectnb/cheas/paleon/ED_runs/p1a_spin_042214//",sites[s],"/analy/",sep="")
   match.files <- grep("-Y-",list.files(dat.dir))
   files <- list.files(dat.dir)
   ann.files  <- files[match.files] #yearly files only
@@ -42,7 +42,7 @@ for(s in 1:length(sites)){
   #Get time window
   yeara <- as.numeric(strsplit(ann.files,"-")[[1]][3]) #first year
   yearz <- as.numeric(strsplit(ann.files,"-")[[length(ann.files)]][3]) #last year
-  
+#  yearz <- 1940
   agb.pft <- lai.pft <- bsa.pft <- dba.pft <- den.pft <- matrix(nrow=(yearz-yeara+1),ncol=length(pft))
 
   for (y in yeara:yearz){
@@ -78,7 +78,7 @@ for(s in 1:length(sites)){
       
     close.ncdf(now)
   }
-}
+#}
   
   years <- as.character((yeara:yearz)-1000)
   year.date <- as.Date(years,"%Y")
